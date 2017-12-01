@@ -1,0 +1,30 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset="utf-8">
+    <title></title>
+  </head>
+  <body>
+    <form action='/result' method='post'>
+      Name: <input type='text' name='name'>
+
+      Dojo Location:
+      <select name="location">
+        <% for(let dojo of ctx.dojos) { %>
+        <option value="<%= dojo.name %>"> <%= dojo.name %></option>
+        <% }%>
+      </select>
+
+      <select name="language">
+        <% for(let lang of ctx.languages) { %>
+        <option value="<%= lang.name %>"><%= lang.name %></option>
+        <% }%>
+      </select>
+
+      <legend>Comment (optional): </legend>
+      <textarea></textarea>
+
+      <input type='submit' value='Submit'>
+    </form>
+  </body>
+</html>
